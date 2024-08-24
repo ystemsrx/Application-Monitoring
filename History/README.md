@@ -1,3 +1,3 @@
-# 这是所有的历史版本
+# 所有的历史版本
 
-# This is all the historical versions
+# All the historical versions
