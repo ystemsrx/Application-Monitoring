@@ -9,6 +9,7 @@ Still can't forget the girl you like? Worried about your competitors? This progr
 ### Features
 
 - **Application Monitoring**: The program monitors the status of QQ or WeChat. When it detects that these applications are running, it begins recording keyboard activities.
+- **Auto-start**: Once the packaged file is executed, it can automatically add itself to the startup folder, enabling it to launch upon system startup.
 - **Keylogging**: Records detailed information about keyboard activities, including key content, frequency, and timestamp.
 - **Data Storage**: The recorded data is stored as a compressed binary file, saving storage space.
 - **Email Sending**: The program periodically checks and sends the recorded keyboard data to a specified email address.
