@@ -77,7 +77,7 @@ In the `Application_Monitoring` file, several configurations need to be filled i
 
 - [ ] **Data Interpretation Tool**: Currently, the program can only record keypress content but cannot interpret full pinyin input. A future tool will be developed to interpret and reconstruct the actual text input by the user, making it easier to understand the input content.
 
-- [ ] **Startup on Boot**: Add the ability to automatically start the program when the computer boots.
+- [X] **Startup on Boot**: Add the ability to automatically start the program when the computer boots.
 
 ### Disclaimer
 
