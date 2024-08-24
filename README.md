@@ -1,3 +1,5 @@
+[English](README.en.md)
+
 # 键盘行为监视器
 
 ## 概况
