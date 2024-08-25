@@ -30,10 +30,12 @@
    - 每隔24h会通过邮件发送给你。
 
 2. **读取与导出**：
-   - 运行 `Read.py` 程序（也可以打包），将 `key_data.bin` 文件拖入，即可查看记录的键盘输入数据。
+   - 运行 `Read.py` 程序，将 `key_data.bin` 文件拖入，即可查看记录的键盘输入数据。
+     **重要**：运行[Read.py](Read.py)需安装PyQt5和Pandas库，运行`pip install pyqt5 pandas`来安装
+
    - 可以将数据筛选并导出为CSV或Excel文件，便于进一步分析。
 
-3. **打包工具**：
+2. **打包工具**：
 
    - 你的电脑必须安装Python，可以[在这里](https://www.python.org/downloads/release/python-3125/)下载安装 。
    - 使用打包工具工具可以将上述两个脚本打包成独立的可执行文件，[点击这里](https://github.com/ystemsrx/Application-Monitoring/releases)。将Python脚本拖入界面即可打包，支持添加自定义图标（拖入图片或图标即可）。
