@@ -31,6 +31,7 @@
 
 2. **读取与导出**：
    - 运行 `Read.py` 程序，将 `key_data.bin` 文件拖入，即可查看记录的键盘输入数据。
+     
      **重要**：运行[Read.py](Read.py)需安装PyQt5和Pandas库，运行`pip install pyqt5 pandas`来安装
 
    - 可以将数据筛选并导出为CSV或Excel文件，便于进一步分析。
