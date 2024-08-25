@@ -31,10 +31,9 @@ Still can't get over that girl you like? Are you anxious about your competitors?
 
 2. **Reading and Exporting**:
    - Run the `Read.py` program, and drag the `key_data.bin` file into it to view the recorded keyboard input data.
+     
      ⚠**Important：[Read.py](Read.py) requires `PyQt5` and `Pandas` libraries to be installed. To install them, run `pip install pyqt5 pandas`.**
   
-
-
    - The data can be filtered and exported as CSV or Excel files for further analysis.
 
 3. **Packaging Tool**:
