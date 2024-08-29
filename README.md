@@ -19,7 +19,7 @@
 ### 📁 文件说明
 
 - **Application_Monitoring**: 主程序，用于监视QQ和微信的运行状态，并记录键盘行为，将数据保存为压缩的二进制文件，并定时通过邮件发送。
-- **Read.py**: 数据读取工具，解压并读取由 `Application_Monitoring` 生成的二进制文件，提供数据可视化和导出功能。我们还使用AI为此工具增加了数据解读的功能（需要提供**自己的API**并填入代码开头的列表，目前仅支持OpenAI、质谱清言、通义千问）
+- **Read.py**: 数据读取工具，解压并读取由 `Application_Monitoring` 生成的二进制文件，提供数据可视化和导出功能。我们还使用AI为此工具增加了数据解读的功能（需要提供**自己的API**并填入代码开头的列表，目前仅支持[OpenAI](https://platform.openai.com/api-keys)、[质谱清言](https://open.bigmodel.cn/usercenter/apikeys)、[通义千问](https://dashscope.console.aliyun.com/apiKey)）
 - **Package_tool.py**: 打包工具，用于将Python脚本打包成单个可执行文件，并支持自定义图标。
 
 ### 📝 使用说明
@@ -37,12 +37,13 @@
      ⚠**重要：运行[Read.py](Read.py)需安装`PyQt5`、`Pandas`和`Requests`库，运行`pip install pyqt5 pandas requests`来安装**
 
    - 可以将数据筛选并导出为CSV或Excel文件，便于进一步分析。
-   - 可以使用工具自带的AI功能对数据进行复原恢复（需自备API KEY，目前仅支持OpenAI、质谱清言、通义千问）。
+   - 可以使用工具自带的AI功能对数据进行复原恢复（需自备API KEY，目前仅支持[OpenAI](https://platform.openai.com/api-keys)、[质谱清言](https://open.bigmodel.cn/usercenter/apikeys)、[通义千问](https://dashscope.console.aliyun.com/apiKey)）。
 
 3. **打包工具**：
 
    - 你的电脑必须安装Python，可以[在这里](https://www.python.org/downloads/release/python-3125/)下载安装 。
-   - 使用打包工具工具可以将上述两个脚本打包成独立的可执行文件，[点击这里](https://github.com/ystemsrx/Application-Monitoring/releases)。将Python脚本拖入界面即可打包，支持添加自定义图标（拖入图片或图标即可）。
+   - 使用打包工具工具可以将主程序打包成独立的可执行文件，[点击这里](https://github.com/ystemsrx/Application-Monitoring/releases)。将Python脚本拖入界面即可打包，支持添加自定义图标（拖入图片或图标即可）。
+   - 运行[打包工具](Package_tool.py)以及对主程序进行打包**需要安装`PyQt5`、`keyboard`、`psutil`、`pywin32`，执行以下代码进行安装：`pip install keyboard psutil pywin32 pyqt5`**。
 
 ### 🖋️ 需要填写的内容
 
@@ -65,7 +66,7 @@
 
    例如：
    ```python
-   compressed_file = "D:\\your_path\\compressed_key_data.bin"
+   compressed_file = "D:\\your_path\\key_data.bin"
    ```
 
 3. **⏰ 时间间隔设置**：
@@ -80,7 +81,7 @@
    - `applications = ["QQ", "WeChat"]`中添加应用，默认QQ和微信，应用用逗号隔开，需要打引号。**注意**：应用需要以程序进程的名字而不是自身的名字（可以在任务管理器里看），比如**企业微信**就叫**WXWork**。
 
 5. **🤖 [Read.py](Read.py)中的API列表**
-   - 若需要使用AI数据解读功能，请将自己的API KEY填写到列表中，若不愿意将它填写在列表，也能在程序启动时临时进行填写。目前我们支持的API KEY仅有OpenAI、质谱清言和通义千问。同时，在函数`setup_model_selector`中，可以自行再添加更多的模型。
+   - 若需要使用AI数据解读功能，请将自己的API KEY填写到列表中，若不愿意将它填写在列表，也能在程序启动时临时进行填写。目前我们支持的API KEY仅有[OpenAI](https://platform.openai.com/api-keys)、[质谱清言](https://open.bigmodel.cn/usercenter/apikeys)、[通义千问](https://dashscope.console.aliyun.com/apiKey)。同时，在函数`setup_model_selector`中，可以自行再添加更多支持的模型。
 
 ### ✅ TODO List
 
