@@ -1,3 +1,5 @@
+[中文](README.md)
+
 # Keyboard Behavior Monitor
 
 ## Overview
