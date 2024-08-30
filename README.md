@@ -43,7 +43,7 @@
 
    - 你的电脑必须安装Python，可以[在这里](https://www.python.org/downloads/release/python-3125/)下载安装 。
    - 使用打包工具工具可以将主程序打包成独立的可执行文件，[点击这里](https://github.com/ystemsrx/Application-Monitoring/releases)。将Python脚本拖入界面即可打包，支持添加自定义图标（拖入图片或图标即可）。
-   - 运行[打包工具](Package_tool.py)以及对主程序进行打包**需要安装`PyQt5`、`keyboard`、`psutil`、`pywin32`，执行以下代码进行安装：`pip install keyboard psutil pywin32 pyqt5`**。
+   - 运行[打包工具](Package_tool.py)以及对主程序进行打包**需要安装`PyQt5`、`keyboard`、`psutil`、`pywin32`、`PyInstaller`库，执行以下代码进行安装：`pip install keyboard psutil pywin32 pyqt5 pyinstaller`**。
 
 ### 🖋️ 需要填写的内容
 
