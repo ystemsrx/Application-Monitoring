@@ -34,7 +34,7 @@ Still infatuated with the girl you like? Still anxious about your competitors? T
 2. **Reading and Exporting**:
    - Run the `Read.py` program and drag in the `key_data.bin` file to view the recorded keyboard input data.
 
-     ⚠ **Important: To run [Read.py](Read.py), you need to install the `PyQt5`, `Pandas`, and `Requests` libraries. Install them by running `pip install pyqt5 pandas requests`.**
+     ⚠ **Important: To run [Read.py](Read.py), you need to install the `PyQt5`, `Pandas`, `Requests` and `PyInstaller` libraries. Install them by running `pip install pyqt5 pandas requests pyinstaller`.**
 
    - You can filter and export the data to CSV or Excel files for further analysis.
    - The tool's built-in AI functionality can be used to reconstruct and restore the data (requires your own API KEY, currently only supports [OpenAI](https://platform.openai.com/api-keys), [Zhipu Qingyan](https://open.bigmodel.cn/usercenter/apikeys), [Tongyi Qianwen](https://dashscope.console.aliyun.com/apiKey)).
