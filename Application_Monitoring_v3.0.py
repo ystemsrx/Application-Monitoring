@@ -17,6 +17,7 @@ import queue
 import atexit
 import random
 import tkinter as tk
+import sys
 
 # Configuration
 TARGET_APPS = ["WeChat", "QQ"]  # Modify for easier testing, e.g., Notepad
@@ -42,8 +43,16 @@ app_pids = defaultdict(list)
 # 自启动功能
 def enable_startup():
     startup_dir = os.path.join(os.getenv('APPDATA'), r'Microsoft\Windows\Start Menu\Programs\Startup')
-    script_name = os.path.basename(__file__)
-    script_path = os.path.join(os.getcwd(), script_name)
+    
+    # 获取当前执行文件的路径，无论是 .py 还是 .exe
+    if getattr(sys, 'frozen', False):
+        # 如果程序是通过 PyInstaller 打包的，'frozen' 属性会存在，指向 .exe 文件
+        script_path = sys.executable
+    else:
+        # 否则，使用当前 .py 文件路径
+        script_path = os.path.abspath(__file__)
+    
+    script_name = os.path.basename(script_path)
     startup_path = os.path.join(startup_dir, script_name)
     
     if not os.path.exists(startup_path):
