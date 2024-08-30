@@ -14,9 +14,10 @@ class WorkerThread(QThread):
     def __init__(self, command):
         super().__init__()
         self.command = command
-        self._process = QProcess()
+        self._process = None
 
     def run(self):
+        self._process = QProcess()
         self._process.setProcessChannelMode(QProcess.MergedChannels)
         self._process.start(self.command)
         self._process.waitForFinished()
@@ -29,7 +30,7 @@ class WorkerThread(QThread):
         self.finished_signal.emit()
 
     def cancel(self):
-        if self._process.state() == QProcess.Running:
+        if self._process and self._process.state() == QProcess.Running:
             self._process.kill()
             self.log_signal.emit("打包任务已取消")
             self.finished_signal.emit()
