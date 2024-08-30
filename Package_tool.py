@@ -5,6 +5,8 @@ from PyQt5.QtWidgets import (
     QListWidget, QTextEdit, QHBoxLayout, QMessageBox, QAbstractItemView, QProgressDialog
 )
 from PyQt5.QtCore import Qt, QProcess, QThread, pyqtSignal, QTimer
+from PIL import Image
+import io
 
 class WorkerThread(QThread):
     log_signal = pyqtSignal(str)
@@ -101,7 +103,8 @@ class PyInstallerGUI(QMainWindow):
         for index in range(self.file_list.count()):
             file_path = self.file_list.item(index).text()
             if self.additional_icon_file:
-                command = f"pyinstaller --onefile --noconsole --icon={self.additional_icon_file} {file_path}"
+                icon_path = self.convert_to_ico(self.additional_icon_file)
+                command = f"pyinstaller --onefile --noconsole --icon={icon_path} {file_path}"
             else:
                 command = f"pyinstaller --onefile --noconsole {file_path}"
 
@@ -114,6 +117,17 @@ class PyInstallerGUI(QMainWindow):
             thread.start()
 
             self.threads.append(thread)
+
+    def convert_to_ico(self, image_path):
+        try:
+            img = Image.open(image_path)
+            ico_path = os.path.splitext(image_path)[0] + '.ico'
+            img.save(ico_path, format='ICO')
+            self.log_output.append(f"图片已转换为ICO格式: {ico_path}")
+            return ico_path
+        except Exception as e:
+            self.log_output.append(f"转换图片到ICO格式时出错: {str(e)}")
+            return image_path  # 如果转换失败，返回原始路径
 
     def update_progress(self):
         if self.progress_value < 85:
