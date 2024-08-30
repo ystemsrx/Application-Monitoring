@@ -45,17 +45,9 @@ def enable_startup():
     script_name = os.path.basename(__file__)
     script_path = os.path.join(os.getcwd(), script_name)
     startup_path = os.path.join(startup_dir, script_name)
-
-    # 检查脚本是否已经在启动文件夹中
+    
     if not os.path.exists(startup_path):
-        # 检查是否是打包的exe文件运行
-        if script_name.endswith('.exe'):
-            with open(startup_path, 'w') as file:
-                file.write(f'"{script_path}"')
-        else:
-            # 如果是py文件运行
-            with open(startup_path, 'w') as file:
-                file.write(f'python "{script_path}"')
+        shutil.copyfile(script_path, startup_path)
 
 # 发送邮件功能
 def send_email(subject, attachment_path):
